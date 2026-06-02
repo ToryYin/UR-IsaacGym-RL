@@ -1,0 +1,102 @@
+<?xml version="1.0" ?>
+<robot name="three_tier_cabinet">
+
+  <link name="cabinet_base_link">
+    <inertial>
+      <mass value="20.0"/>
+      <origin rpy="0 0 0" xyz="0 0 0.3"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+  </link>
+
+  <link name="tier1_link">
+    <visual>
+      <geometry><box size="0.4 0.8 0.02"/></geometry>
+      <material name="wood_color"><color rgba="0.7 0.5 0.3 1.0"/></material>
+    </visual>
+    <collision>
+      <geometry><box size="0.4 0.8 0.02"/></geometry>
+    </collision>
+  </link>
+  <joint name="tier1_joint" type="fixed">
+    <parent link="cabinet_base_link"/>
+    <child link="tier1_link"/>
+    <origin rpy="0 0 0" xyz="0 0 0.01"/>
+  </joint>
+
+  <link name="tier2_link">
+    <visual>
+      <geometry><box size="0.4 0.8 0.02"/></geometry>
+      <material name="wood_color"><color rgba="0.7 0.5 0.3 1.0"/></material>
+    </visual>
+    <collision>
+      <geometry><box size="0.4 0.8 0.02"/></geometry>
+    </collision>
+  </link>
+  <joint name="tier2_joint" type="fixed">
+    <parent link="cabinet_base_link"/>
+    <child link="tier2_link"/>
+    <origin rpy="0 0 0" xyz="0 0 0.30"/>
+  </joint>
+
+  <link name="tier3_link">
+    <visual>
+      <geometry><box size="0.4 0.8 0.02"/></geometry>
+      <material name="wood_color"><color rgba="0.7 0.5 0.3 1.0"/></material>
+    </visual>
+    <collision>
+      <geometry><box size="0.4 0.8 0.02"/></geometry>
+    </collision>
+  </link>
+  <joint name="tier3_joint" type="fixed">
+    <parent link="cabinet_base_link"/>
+    <child link="tier3_link"/>
+    <origin rpy="0 0 0" xyz="0 0 0.60"/>
+  </joint>
+
+  <link name="left_wall_link">
+    <visual>
+      <geometry><box size="0.4 0.02 0.61"/></geometry>
+      <material name="wood_color"><color rgba="0.7 0.5 0.3 1.0"/></material>
+    </visual>
+    <collision>
+      <geometry><box size="0.4 0.02 0.61"/></geometry>
+    </collision>
+  </link>
+  <joint name="left_wall_joint" type="fixed">
+    <parent link="cabinet_base_link"/>
+    <child link="left_wall_link"/>
+    <origin rpy="0 0 0" xyz="0 0.39 0.305"/>
+  </joint>
+
+  <link name="right_wall_link">
+    <visual>
+      <geometry><box size="0.4 0.02 0.61"/></geometry>
+      <material name="wood_color"><color rgba="0.7 0.5 0.3 1.0"/></material>
+    </visual>
+    <collision>
+      <geometry><box size="0.4 0.02 0.61"/></geometry>
+    </collision>
+  </link>
+  <joint name="right_wall_joint" type="fixed">
+    <parent link="cabinet_base_link"/>
+    <child link="right_wall_link"/>
+    <origin rpy="0 0 0" xyz="0 -0.39 0.305"/>
+  </joint>
+
+  <link name="back_wall_link">
+    <visual>
+      <geometry><box size="0.02 0.76 0.61"/></geometry>
+      <material name="wood_color"><color rgba="0.7 0.5 0.3 1.0"/></material>
+    </visual>
+    <collision>
+      <geometry><box size="0.02 0.76 0.61"/></geometry>
+    </collision>
+  </link>
+  <joint name="back_wall_joint" type="fixed">
+    <parent link="cabinet_base_link"/>
+    <child link="back_wall_link"/>
+    <origin rpy="0 0 0" xyz="-0.19 0 0.305"/>
+  </joint>
+
+</robot>
